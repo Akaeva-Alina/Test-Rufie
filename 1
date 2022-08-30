@@ -1,0 +1,61 @@
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import (
+       QApplication, QWidget,
+       QHBoxLayout, QVBoxLayout,
+       QGroupBox, QRadioButton,
+       QPushButton, QLabel, QListWidget, QLineEdit)
+
+from instr import *
+from final_win import *
+
+class TestWin(QWidget):
+  def __init__(self):
+    super().__init__()
+    #Создаем и настраиваем графические элементы:
+    self.initUI()
+
+    #Устанавливаем связи между элементами:
+    self.connects()
+
+    #Устанавливаем как и где будет расположено окно:
+    self.set_appear()
+
+    #старт
+    self.show()
+
+  def initUI(self):
+    self.btn_next = QPushButton(txt_sendresults, self)
+    self.btn_test1 = QPushButton(txt_starttest1, self)
+    self.btn_test2 = QPushButton(txt_starttest2, self)
+    self.btn_test3 = QPushButton(txt_starttest3, self)
+
+    self.text_name = QLabel(txt_name)
+    self.text_age = QLabel(txt_age)
+    self.text_test1 = QLabel(txt_test1)
+    self.text_test2 = QLabel(txt_test2)
+    self.text_test3 = QLabel(txt_test3)
+    self.text_timer = QLabel(txt_timer)
+
+    self.Line_name = QLineEdit(txt_hintname)
+    self.line_age = QLineEdit(txt_hintage)
+    self.line_test1 = QLineEdit(txt_hinttest1)
+    self.line_test2 = QLineEdit(txt_hinttest2)
+    self.line_test3 = QLineEdit(txt_hinttest3)
+
+    self.l_line = QVBoxLayout() # левая линия
+    self.r_line = QVBoxLayout() # правая линия
+    self.h_line = QHBoxLayout() # главная линия
+
+    # ДЗ: дописать метод initUI(), то есть подключить все виджеты к линиям и отобразить
+
+  def next_click(self):
+    # сделать аналогично с классом MainWin(), только переходить окошко должно на FinalWin()
+    pass
+
+  def connects(self):
+    self.btn_next.clicked.connect(self.next_click)
+
+  def set_appear(self):
+    #аналогично с MainWin()
+    #все переменные смотрите в instr.py
+    pass
